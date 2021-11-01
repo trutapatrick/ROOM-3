@@ -1,6 +1,5 @@
-package clients;
+package entity.client;
 
-import javax.persistence.Column;
 import java.util.Date;
 
 public class Client {

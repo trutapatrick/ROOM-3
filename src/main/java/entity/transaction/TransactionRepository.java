@@ -1,4 +1,4 @@
-package entity;
+package entity.transaction;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -8,7 +8,7 @@ import util.HibernateUtil;
 import java.util.List;
 
 public class TransactionRepository {
-    public void createTransaction(entity.Transaction transactions) {
+    public void createTransaction(entity.transaction.Transaction transactions) {
         Transaction transaction = null;
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -22,7 +22,7 @@ public class TransactionRepository {
             ex.printStackTrace();
         }
     }
-    public void deleteTransaction(entity.Transaction transactions){
+    public void deleteTransaction(entity.transaction.Transaction transactions){
         Transaction transaction = null;
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -36,10 +36,10 @@ public class TransactionRepository {
             ex.printStackTrace();
         }
     }
-    public entity.Transaction getTransations(int  transactionId){
+    public entity.transaction.Transaction getTransations(int  transactionId){
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
-            entity.Transaction transaction = session.find(entity.Transaction.class, transactionId);
+            entity.transaction.Transaction transaction = session.find(entity.transaction.Transaction.class, transactionId);
             return transaction;
         } catch (Exception ex){
             ex.printStackTrace();
@@ -47,11 +47,11 @@ public class TransactionRepository {
         }
     }
 
-    public List<entity.Transaction> getTransactions() {
+    public List<entity.transaction.Transaction> getTransactions() {
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
-            Query query = session.createQuery("select t from Transaction t", entity.Transaction.class);
-            List<entity.Transaction> trasnsactions = query.list();
+            Query query = session.createQuery("select t from Transaction t", entity.transaction.Transaction.class);
+            List<entity.transaction.Transaction> trasnsactions = query.list();
             return trasnsactions;
         }catch (Exception ex){
             ex.printStackTrace();

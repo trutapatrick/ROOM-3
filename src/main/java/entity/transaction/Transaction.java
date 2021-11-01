@@ -1,4 +1,4 @@
-package entity;
+package entity.transaction;
 
 import javax.persistence.Entity;
 import java.util.Date;

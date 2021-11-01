@@ -1,6 +1,5 @@
-package users;
+package entity.user;
 
-import javax.persistence.*;
 import java.util.Date;
 
 public class User {
