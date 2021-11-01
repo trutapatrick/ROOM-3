@@ -1,8 +1,8 @@
 package entity.transaction;
 
-import javax.persistence.Entity;
+
 import java.util.Date;
-@Entity
+
 public class Transaction {
     private int transactionId;
     private String contDebitat;
