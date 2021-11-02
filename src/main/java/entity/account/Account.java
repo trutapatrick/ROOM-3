@@ -1,12 +1,12 @@
-package accounts;
+package entity.account;
 
-import javax.persistence.*;
 import java.util.Date;
 
 public class Account {
 
+    private int id;
     private int codClient;
-    private long iban;
+    private String iban;
     private String productType;
     private String currencyType;
     private Date creationDate;
@@ -17,7 +17,9 @@ public class Account {
 
     }
 
-    public Account(int codClient, long iban, String productType, String currencyType, Date creationDate, Date closingDate, double available) {
+    public Account(int id, int codClient, String iban, String productType, String currencyType, Date creationDate, Date closingDate, double available) {
+
+        this.id = id;
         this.codClient = codClient;
         this.iban = iban;
         this.productType = productType;
@@ -25,6 +27,14 @@ public class Account {
         this.creationDate = creationDate;
         this.closingDate = closingDate;
         this.available = available;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getCodClient() {
@@ -35,11 +45,11 @@ public class Account {
         this.codClient = codClient;
     }
 
-    public long getIban() {
+    public String getIban() {
         return iban;
     }
 
-    public void setIban(long id) {
+    public void setIban(String iban) {
         this.iban = iban;
     }
 
@@ -86,12 +96,13 @@ public class Account {
     @Override
     public String toString() {
         return "Account{" +
-                "codClient=" + codClient +
-                ", iban=" + iban +
+                "id=" + id +
+                ", codClient=" + codClient +
+                ", iban='" + iban + '\'' +
                 ", productType='" + productType + '\'' +
                 ", currencyType='" + currencyType + '\'' +
                 ", creationDate=" + creationDate +
-                ", closingDate='" + closingDate + '\'' +
+                ", closingDate=" + closingDate +
                 ", available=" + available +
                 '}';
     }

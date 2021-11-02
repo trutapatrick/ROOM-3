@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class Transaction {
     private int transactionId;
+    private String username;
     private String contDebitat;
     private String contCreditat;
     private String transactionCurrency;
@@ -12,12 +13,13 @@ public class Transaction {
     private Date transactionDate;
     private String description;
 
-    public Transaction(){
+    public Transaction() {
 
     }
 
-    public Transaction(int transactionId, String contDebitat, String contCreditat, String transactionCurrency, Double amount, Date transactionDate, String description) {
+    public Transaction(int transactionId, String username, String contDebitat, String contCreditat, String transactionCurrency, Double amount, Date transactionDate, String description) {
         this.transactionId = transactionId;
+        this.username = username;
         this.contDebitat = contDebitat;
         this.contCreditat = contCreditat;
         this.transactionCurrency = transactionCurrency;
@@ -32,6 +34,14 @@ public class Transaction {
 
     public void setTransactionId(int transactionId) {
         this.transactionId = transactionId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getContDebitat() {
@@ -86,6 +96,7 @@ public class Transaction {
     public String toString() {
         return "Transaction{" +
                 "transactionId=" + transactionId +
+                ", username='" + username + '\'' +
                 ", contDebitat='" + contDebitat + '\'' +
                 ", contCreditat='" + contCreditat + '\'' +
                 ", transactionCurrency='" + transactionCurrency + '\'' +
@@ -94,4 +105,5 @@ public class Transaction {
                 ", description='" + description + '\'' +
                 '}';
     }
+
 }
