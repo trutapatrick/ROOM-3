@@ -1,12 +1,11 @@
-package accounts;
+package entity.account;
 
-import example.entity.Account;
-import example.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.List;
 import org.hibernate.query.Query;
+import util.HibernateUtil;
 
 public class AccountRepository {
 

@@ -1,7 +1,10 @@
 package util;
 
 
+import entity.account.Account;
+import entity.client.Client;
 import entity.transaction.Transaction;
+import entity.user.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -30,6 +33,9 @@ public class HibernateUtil {
                 settings.put(Environment.HBM2DDL_AUTO, "create");
                 configuration.setProperties(settings);
                 configuration.addAnnotatedClass(Transaction.class);
+                configuration.addAnnotatedClass(Account.class);
+                configuration.addAnnotatedClass(Client.class);
+                configuration.addAnnotatedClass(User.class);
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties()).build();
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);
