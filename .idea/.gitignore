@@ -7,5 +7,4 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 /.idea/
-/src/main/java/util/HibernateUtil.java
 /target/
