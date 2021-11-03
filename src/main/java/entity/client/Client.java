@@ -1,23 +1,39 @@
 package entity.client;
 
+import entity.account.Account;
+import entity.user.User;
+
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
+@Entity
+@Table(name ="clients")
 public class Client {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "cod_client")
     private int codClient;
-
-    private Long id;
-
+    @Column(name ="id")
+    private Double id;
+    @Column(name = "firsname")
     private String firstName;
-
+    @Column(name = "lastName")
     private String lastName;
-
+    @Column(name = "dateOfBirth")
     private Date birthday;
-
+    @Column(name = "email")
     private String email;
-
+    @Column(name = "phoneNumber")
     private int phoneNumber;
-
+    @Column(name = "county")
     private String county;
+
+    @OneToOne(mappedBy = "clients")
+    private User user;
+
+    @OneToMany(mappedBy = "accounts", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Account> accounts;
 
     public Client() {
     }
@@ -26,7 +42,7 @@ public class Client {
         return codClient;
     }
 
-    public Long getId() {
+    public Double getId() {
         return id;
     }
 
@@ -58,7 +74,7 @@ public class Client {
         this.codClient = codClient;
     }
 
-    public void setId(Long id) {
+    public void setId(Double id) {
         this.id = id;
     }
 
@@ -100,7 +116,7 @@ public class Client {
                 '}';
     }
 
-    public Client(int codClient, Long id, String firstName, String lastName, Date birthday, String email, int phoneNumber, String county) {
+    public Client(int codClient, Double id, String firstName, String lastName, Date birthday, String email, int phoneNumber, String county) {
         this.codClient = codClient;
         this.id = id;
         this.firstName = firstName;

@@ -1,17 +1,35 @@
 package entity.account;
 
+import entity.client.Client;
+
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
+@Entity
+@Table(name = "current_accounts")
 public class Account {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(name = "cod_cl")
     private int codClient;
+    @Column(name = "IBAN")
     private String iban;
+    @Column(name = "product_type")
     private String productType;
+    @Column(name = "curency_type")
     private String currencyType;
+    @Column(name = "creation_date")
     private Date creationDate;
+    @Column(name = "closing_date")
     private Date closingDate;
+    @Column(name = "available")
     private double available;
+
+    @ManyToOne
+    @JoinColumn(name = "cod_cl")
+    private Client client;
 
     public Account() {
 

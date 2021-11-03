@@ -1,17 +1,37 @@
 package entity.user;
 
+import entity.client.Client;
+import entity.transaction.Transaction;
+
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
+@Entity
+@Table(name ="users" )
 public class User {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(name = "cod_cl")
     private int codClient;
+    @Column(name = "username")
     private String username;
+    @Column(name = "password")
     private String password;
+    @Column(name = "creation_date")
     private Date creationDate;
+    @Column(name = "status")
     private String status;
+    @Column(name = "last_status_date")
     private Date lastStatusDate;
 
+    @OneToOne
+   // @JoinColumn(name = "cod_client")
+    private Client client;
+
+    @OneToMany(mappedBy = "users")
+    private List<Transaction> transaction;
     public User() {
 
     }

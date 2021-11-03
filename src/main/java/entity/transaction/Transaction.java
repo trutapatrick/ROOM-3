@@ -1,17 +1,35 @@
 package entity.transaction;
 
 
-import java.util.Date;
+import entity.user.User;
 
+import javax.persistence.*;
+import java.util.Date;
+@Entity
+@Table(name ="transactions")
 public class Transaction {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int transactionId;
+    @Column(name = "username")
     private String username;
+    @Column(name = "cont_debitat")
     private String contDebitat;
+    @Column(name = "cont_creditat")
     private String contCreditat;
+    @Column(name = "tr_currency")
     private String transactionCurrency;
+    @Column(name = "amount")
     private Double amount;
+    @Column(name = "tr_date")
     private Date transactionDate;
+    @Column(name = "description")
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private User user;
 
     public Transaction() {
 
