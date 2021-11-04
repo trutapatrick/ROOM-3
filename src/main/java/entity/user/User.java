@@ -27,11 +27,11 @@ public class User {
     private Date lastStatusDate;
 
     @OneToOne
-   // @JoinColumn(name = "cod_client")
     private Client client;
 
-    @OneToMany(mappedBy = "users")
+    @OneToMany(mappedBy = "user")
     private List<Transaction> transaction;
+
     public User() {
 
     }

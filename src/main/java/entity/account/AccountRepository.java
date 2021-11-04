@@ -50,6 +50,17 @@ public class AccountRepository {
         }
     }
 
+    public String findIbanByCodCl(int codClient){
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            Account account = session.find(Account.class, codClient);
+            return account.getIban();
+        } catch (Exception ex){
+            ex.printStackTrace();
+            return null;
+        }
+
+    }
     public List<Account> getAccounts() {
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();

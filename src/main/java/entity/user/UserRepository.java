@@ -68,6 +68,17 @@ public class UserRepository {
             return null;
         }
     }
+    public User findUsername(String username) {
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            User user = session.find(User.class, username);
+            return user;
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
 
     public List<User> getUsers() {
         try {

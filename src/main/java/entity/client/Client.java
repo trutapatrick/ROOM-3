@@ -16,7 +16,7 @@ public class Client {
     private int codClient;
     @Column(name ="id")
     private Double id;
-    @Column(name = "firsname")
+    @Column(name = "firstName")
     private String firstName;
     @Column(name = "lastName")
     private String lastName;
@@ -29,11 +29,11 @@ public class Client {
     @Column(name = "county")
     private String county;
 
-    @OneToOne(mappedBy = "clients")
+    @OneToOne
     private User user;
 
-    @OneToMany(mappedBy = "accounts", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Account> accounts;
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Account> account;
 
     public Client() {
     }

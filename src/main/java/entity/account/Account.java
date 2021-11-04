@@ -7,12 +7,11 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "current_accounts")
+@Table(name = "account")
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @Column(name = "cod_cl")
     private int codClient;
     @Column(name = "IBAN")
     private String iban;
