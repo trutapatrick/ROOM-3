@@ -30,7 +30,7 @@ public class User {
    // @JoinColumn(name = "cod_client")
     private Client client;
 
-    @OneToMany(mappedBy = "users")
+    @OneToMany(mappedBy = "user")
     private List<Transaction> transaction;
     public User() {
 
